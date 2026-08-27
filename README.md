@@ -30,15 +30,15 @@ flowchart TD
         direction TB
         
         subgraph Bronze ["Capa Bronze (Raw Ingestion)"]
-            B1["<b>01_ingesta-bronze</b><br/>• Lectura en StringType (evita pérdida de datos)<br/>• Sanitización de nombres (% y espacios)<br/>• Guardado en formato Delta"]
+            B1["<b>01_capa_bronze</b><br/>• Lectura en StringType (evita pérdida de datos)<br/>• Sanitización de nombres (% y espacios)<br/>• Guardado en formato Delta"]
         end
 
         subgraph Silver ["Capa Silver (Cleaned & Conformed)"]
-            S1["<b>02_ingesta-silver</b><br/>• Casteo numérico (comas a puntos)<br/>• Parseo y validación de Timestamps<br/>• Tabla Delta optimizada a nivel de sensor (20s)"]
+            S1["<b>02_capa_silver</b><br/>• Casteo numérico (comas a puntos)<br/>• Parseo y validación de Timestamps<br/>• Tabla Delta optimizada a nivel de sensor (20s)"]
         end
 
         subgraph Gold ["Capa Gold (Business Aggregates)"]
-            G1["<b>03_ingesta-gold (Data Marts)</b><br/>• Agregación horaria & segmentación por turnos<br/>• Control de Sílice (Req 1)<br/>• Eficiencia de Reactivos & Costos (Req 2)<br/>• Variabilidad y Estabilidad de Mina (Req 3)"]
+            G1["<b>03_capa_gold (Data Marts)</b><br/>• Agregación horaria & segmentación por turnos<br/>• Control de Sílice (Req 1)<br/>• Eficiencia de Reactivos & Costos (Req 2)<br/>• Variabilidad y Estabilidad de Mina (Req 3)"]
         end
 
         Bronze --> Silver
@@ -57,19 +57,19 @@ flowchart TD
 ## Fases de Procesamiento
 
 ### 1. Ingesta Raw (Capa Bronze)
-El pipeline inicial (`01_ingesta-bronze`) se encarga de la captura de los archivos CSV generados por los sensores de planta.
+El pipeline inicial (`01_capa_bronze`) se encarga de la captura de los archivos CSV generados por los sensores de planta.
 * **Preservación de Datos:** Lectura estricta en `StringType` para evitar pérdida de precisión o fallos por tipos de datos inconsistentes desde el origen.
 * **Estandarización de Esquema:** Sanitización de nombres de columnas (eliminación de caracteres especiales como `%` y espacios).
 * **Almacenamiento:** Escritura en formato Delta con metadatos de linaje.
 
 ### 2. Limpieza y Conformación (Capa Silver)
-La fase de estandarización (`02_ingesta-silver`) aplica transformaciones técnicas críticas para asegurar la calidad y consistencia del dato.
+La fase de estandarización (`02_capa_silver`) aplica transformaciones técnicas críticas para asegurar la calidad y consistencia del dato.
 * **Transformación Numérica:** Reemplazo de separadores decimales (de comas a puntos) y casteo riguroso a formatos numéricos (`Double`, `Integer`).
 * **Manejo Temporal:** Parseo y validación de columnas `Timestamp`.
 * **Optimización Analítica:** Particionamiento y optimización (Z-Ordering) a nivel de sensor, manejando de forma eficiente la granularidad nativa de 20 segundos.
 
 ### 3. Agregados de Negocio (Capa Gold)
-La última etapa de procesamiento (`03_ingesta-gold`) consolida la información para dar respuesta a los requerimientos operativos de la gerencia. Se aplican agregaciones de marco temporal (horarias) y lógicas de negocio por turnos de trabajo.
+La última etapa de procesamiento (`03_capa_gold`) consolida la información para dar respuesta a los requerimientos operativos de la gerencia. Se aplican agregaciones de marco temporal (horarias) y lógicas de negocio por turnos de trabajo.
 
 #### Casos de Uso Implementados:
 * **[Req 1] Control de Sílice:** El contrato con la fundición exige que el concentrado final tenga menos de 1.5% de Sílice (% Silica Concentrate < 1.5%). Si entregamos más de 1.5%, pagamos multas o nos rechazan el mineral. Necesito saber con precisión cuántas horas al día operamos 'fuera de norma' y en qué momentos exactos ocurren estos fallos.
