@@ -10,7 +10,7 @@
 
 Este repositorio contiene la implementación del pipeline de datos analíticos para el procesamiento de telemetría proveniente del proceso de flotación de mineral de hierro. El sistema adopta una arquitectura Medallion (Lakehouse) desplegada sobre Databricks, procesando los datos desde su extracción cruda hasta la disponibilización de modelos dimensionales para la toma de decisiones ejecutivas.
 
-##Contexto del Dataset
+## Contexto del Dataset
 
 Este conjunto de datos recopila información operativa en tiempo real de una planta de flotación de mineral de hierro, capturada entre marzo y septiembre de 2017 a intervalos de alta frecuencia (cada 20 segundos) combinados con análisis de laboratorio por hora.
 Fuente: Quality Prediction in a Mining Process (Kaggle).
