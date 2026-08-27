@@ -79,5 +79,5 @@ El proyecto refleja el flujo de ejecución dentro de Databricks, organizado por 
 │   ├── 01_ingesta_bronze.py      # Lectura del CSV y guardado en Delta (Raw)
 │   ├── 02_ingesta_silver.py      # Casteo, parseo temporal y optimización
 │   └── 03_ingesta_gold.py        # Agregaciones horarias y reglas de negocio
-├── data/                         # (Opcional) Archivo CSV de muestra de telemetría
+├── data/                         # Archivo CSV de muestra de telemetría
 └── README.md                     # Documentación principal del repositorio
