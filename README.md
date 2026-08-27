@@ -1,5 +1,4 @@
 <div align="center">
-  <img src="watermarked_img_10926721878290267620.jpg" alt="Logo del Proyecto" width="200"/>
   
   # Pipeline de Telemetría: Flotación de Mineral de Hierro
   **Arquitectura Lakehouse (Medallion) para Análisis de Telemetría Industrial**
@@ -42,7 +41,7 @@ flowchart TD
 
 
     CSV --> Bronze
-    Gold --> Consumo
+    Gold 
 
     style Bronze fill:#cd7f32,stroke:#333,stroke-width:1px,color:#fff
     style Silver fill:#c0c0c0,stroke:#333,stroke-width:1px,color:#000
