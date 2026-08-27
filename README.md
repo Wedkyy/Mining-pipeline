@@ -1,5 +1,5 @@
 <div align="center">
-  #Pipeline de Telemetría: Flotación de Mineral de Hierro
+  ## Pipeline de Telemetría: Flotación de Mineral de Hierro
   **Arquitectura Lakehouse (Medallion) para Análisis de Telemetría Industrial**
 </div>
 
