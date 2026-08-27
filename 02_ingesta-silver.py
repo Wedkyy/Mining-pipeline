@@ -1,5 +1,0 @@
-# Databricks notebook source
-
-
-# COMMAND ----------
-
