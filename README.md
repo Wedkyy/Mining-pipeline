@@ -1,3 +1,4 @@
+```mermaid
 flowchart TD
     %% Nodos de Origen
     subgraph Origen ["FUENTES DE DATOS"]
@@ -32,7 +33,7 @@ flowchart TD
     CSV --> Bronze
     Gold --> Consumo
 
-    %% Estilos Globales: Paleta Modern Tech (Dark Blue / Cyan / Bronze / Silver / Gold)
+    %% Estilos Globales: Paleta Modern Tech (Dark Slate / Bronze / Silver / Gold)
     classDef default font-family:Inter,Segoe UI,Arial,sans-serif,font-size:12px;
 
     %% Contenedores Principales
@@ -51,3 +52,4 @@ flowchart TD
     style S1 fill:#334155,stroke:#cbd5e1,stroke-width:1.5px,color:#ffffff,rx:8,ry:8
     style G1 fill:#2e2814,stroke:#facc15,stroke-width:1.5px,color:#fef9c3,rx:8,ry:8
     style BI fill:#1e293b,stroke:#38bdf8,stroke-width:1.5px,color:#f8fafc,rx:8,ry:8
+```
