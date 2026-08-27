@@ -1,4 +1,3 @@
-```mermaid
 flowchart TD
     %% Nodos de Origen
     subgraph Origen ["FUENTES DE DATOS"]
@@ -6,19 +5,19 @@ flowchart TD
     end
 
     %% Nodos de Lakehouse Databricks
-    subgraph Lakehouse ["ARQUITECTURA MEDALLION (DATABRICKS LAKEHOUSE)"]
+    subgraph Lakehouse ["DATABRICKS LAKEHOUSE · MEDALLION ARCHITECTURE"]
         direction TB
         
         subgraph Bronze ["CAPA BRONZE · RAW INGESTION"]
-            B1["<b>01_ingesta_bronze</b><br/>• Lectura en StringType para preservación de datos<br/>• Sanitización técnica de nombres de columnas<br/>• Almacenamiento transaccional Delta Lake"]
+            B1["<b>01_ingesta_bronze</b><br/>• Lectura en StringType (sin pérdida de datos)<br/>• Sanitización técnica de nombres de columnas<br/>• Almacenamiento transaccional Delta Lake"]
         end
 
         subgraph Silver ["CAPA SILVER · CLEANED & CONFORMED"]
-            S1["<b>02_ingesta_silver</b><br/>• Casteo a DoubleType con normalización numérica<br/>• Parseo estandarizado de marcas temporales<br/>• Preservación de granularidad de sensores (20s)"]
+            S1["<b>02_ingesta_silver</b><br/>• Casteo numérico & normalización de tipos<br/>• Parseo estandarizado de Timestamps<br/>• Preservación de granularidad de sensores (20s)"]
         end
 
         subgraph Gold ["CAPA GOLD · BUSINESS AGGREGATES"]
-            G1["<b>03_ingesta_gold</b><br/>• Agregación horaria y segmentación por turno operativo<br/>• Control de Calidad y Pérdidas de Sílice (Req 1)<br/>• Eficiencia y Costos Específicos de Reactivos (Req 2)<br/>• Estabilización de Planta y Variabilidad de Mina (Req 3)"]
+            G1["<b>03_ingesta_gold (Data Marts)</b><br/>• Agregación horaria & segmentación por turno<br/>• Control de Calidad y Pérdidas de Sílice (Req 1)<br/>• Eficiencia y Costos de Reactivos (Req 2)<br/>• Estabilidad de Planta & Ley de Mina (Req 3)"]
         end
 
         Bronze --> Silver
@@ -33,13 +32,22 @@ flowchart TD
     CSV --> Bronze
     Gold --> Consumo
 
-    %% Estilos Globales y Uniformes (Bordes redondeados y paleta sobria)
-    classDef default font-family:Arial,sans-serif,font-size:12px;
-    
-    style Origen fill:#f8fafc,stroke:#94a3b8,stroke-width:1.5px,color:#334155,rx:10,ry:10
-    style Lakehouse fill:#f1f5f9,stroke:#64748b,stroke-width:2px,color:#1e293b,rx:12,ry:12
-    style Consumo fill:#f8fafc,stroke:#94a3b8,stroke-width:1.5px,color:#334155,rx:10,ry:10
+    %% Estilos Globales: Paleta Modern Tech (Dark Blue / Cyan / Bronze / Silver / Gold)
+    classDef default font-family:Inter,Segoe UI,Arial,sans-serif,font-size:12px;
 
-    style Bronze fill:#fef3c7,stroke:#d
-    style Gold fill:#ffd700,stroke:#333,stroke-width:1px,color:#000
-```
+    %% Contenedores Principales
+    style Origen fill:#0f172a,stroke:#38bdf8,stroke-width:1.5px,color:#f8fafc,rx:12,ry:12
+    style Lakehouse fill:#0b1329,stroke:#6366f1,stroke-width:2px,color:#f8fafc,rx:14,ry:14
+    style Consumo fill:#0f172a,stroke:#38bdf8,stroke-width:1.5px,color:#f8fafc,rx:12,ry:12
+
+    %% Capas Medallion (Contenedores)
+    style Bronze fill:#1e1b18,stroke:#d97706,stroke-width:1.5px,color:#fbbf24,rx:10,ry:10
+    style Silver fill:#1e2430,stroke:#94a3b8,stroke-width:1.5px,color:#e2e8f0,rx:10,ry:10
+    style Gold fill:#201d0d,stroke:#eab308,stroke-width:1.5px,color:#fef08a,rx:10,ry:10
+
+    %% Nodos Internos (Tarjetas uniformes con alto contraste)
+    style CSV fill:#1e293b,stroke:#38bdf8,stroke-width:1.5px,color:#f8fafc,rx:8,ry:8
+    style B1 fill:#292524,stroke:#f59e0b,stroke-width:1.5px,color:#fef3c7,rx:8,ry:8
+    style S1 fill:#334155,stroke:#cbd5e1,stroke-width:1.5px,color:#ffffff,rx:8,ry:8
+    style G1 fill:#2e2814,stroke:#facc15,stroke-width:1.5px,color:#fef9c3,rx:8,ry:8
+    style BI fill:#1e293b,stroke:#38bdf8,stroke-width:1.5px,color:#f8fafc,rx:8,ry:8
