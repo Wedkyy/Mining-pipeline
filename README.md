@@ -1,8 +1,9 @@
 <div align="center">
-  
   # Pipeline de Telemetría: Flotación de Mineral de Hierro
   **Arquitectura Lakehouse (Medallion) para Análisis de Telemetría Industrial**
-  **Stack Tecnológico**
+</div>
+<div align="center">
+  # Stack Tecnológico
   **Databricks, PySpark, Delta Lake, Python**
 </div>
 
