@@ -82,7 +82,7 @@ La última etapa de procesamiento (`03_ingesta-gold`) consolida la información 
 El proyecto refleja el flujo de ejecución dentro de Databricks, organizado por las etapas de la arquitectura Medallion:
 ```text
 ├── notebooks/
-│   ├── 01_ingesta_bronze.py      # Lectura del CSV y guardado en Delta (Raw)
-│   ├── 02_ingesta_silver.py      # Casteo, parseo temporal y optimización
-│   └── 03_ingesta_gold.py        # Agregaciones horarias y reglas de negocio
+│   ├── 01_capa_bronze.py      # Lectura del CSV y guardado en Delta (Raw)
+│   ├── 02_capa_silver.py      # Casteo, parseo temporal y optimización
+│   └── 03_capa_gold.py        # Agregaciones horarias y reglas de negocio
 └── README.md                     # Documentación principal del repositorio
