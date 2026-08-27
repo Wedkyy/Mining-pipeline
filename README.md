@@ -2,10 +2,6 @@
   # Pipeline de Telemetría: Flotación de Mineral de Hierro
   **Arquitectura Lakehouse (Medallion) para Análisis de Telemetría Industrial**
 </div>
-<div align="center">
-  # Stack Tecnológico
-  **Databricks, PySpark, Delta Lake, Python**
-</div>
 
 ---
 
@@ -89,3 +85,14 @@ El proyecto refleja el flujo de ejecución dentro de Databricks, organizado por 
 │   ├── 02_capa_silver.ipynb      # Casteo, parseo temporal y optimización
 │   └── 03_capa_gold.ipynb        # Agregaciones horarias y reglas de negocio
 └── README.md                     # Documentación principal del repositorio
+
+## Estructura del Proyecto
+El proyecto refleja el flujo de ejecución dentro de Databricks, organizado por las etapas de la arquitectura Medallion:
+```text
+├── notebooks/
+│   ├── 01_capa_bronze.ipynb      # Lectura del CSV y guardado en Delta (Raw)
+│   ├── 02_capa_silver.ipynb      # Casteo, parseo temporal y optimización
+│   └── 03_capa_gold.ipynb        # Agregaciones horarias y reglas de negocio
+└── README.md                     # Documentación principal del repositorio
+
+Stack Tecnológico: Databricks, PySpark, Delta Lake, Python.
