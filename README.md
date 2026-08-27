@@ -95,5 +95,6 @@ El proyecto refleja el flujo de ejecución dentro de Databricks, organizado por 
 │   ├── 02_capa_silver.ipynb      # Casteo, parseo temporal y optimización
 │   └── 03_capa_gold.ipynb        # Agregaciones horarias y reglas de negocio
 └── README.md                     # Documentación principal del repositorio
+```
 
 Stack Tecnológico: Databricks, PySpark, Delta Lake, Python.
