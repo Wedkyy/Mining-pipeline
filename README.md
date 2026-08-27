@@ -13,8 +13,8 @@ Este repositorio contiene la implementación del pipeline de datos analíticos p
 ## Contexto del Dataset
 
 Este conjunto de datos recopila información operativa en tiempo real de una planta de flotación de mineral de hierro, capturada entre marzo y septiembre de 2017 a intervalos de alta frecuencia (cada 20 segundos) combinados con análisis de laboratorio por hora.
-Fuente: Quality Prediction in a Mining Process (Kaggle).
-Autor: Edvaldo Magalhães.
+* Fuente: Quality Prediction in a Mining Process (Kaggle).
+* Autor: Edvaldo Magalhães.
 
 ## Arquitectura del Sistema
 
