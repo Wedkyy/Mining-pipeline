@@ -66,12 +66,14 @@ La fase de estandarización (`02_ingesta-silver`) aplica transformaciones técni
 La última etapa de procesamiento (`03_ingesta-gold`) consolida la información para dar respuesta a los requerimientos operativos de la gerencia. Se aplican agregaciones de marco temporal (horarias) y lógicas de negocio por turnos de trabajo.
 
 #### Casos de Uso Implementados:
-* **[Req 1] Control de Sílice:** El contrato con la fundición exige que el concentrado final tenga menos de 1.5% de Sílice (% Silica Concentrate < 1.5%). Si entregamos más de 1.5%, pagamos multas o nos rechazan el mineral. Necesito saber con precisión cuántas horas al día operamos 'fuera de norma' y en qué momentos exactos ocurren estos fallos
+* **[Req 1] Control de Sílice:** El contrato con la fundición exige que el concentrado final tenga menos de 1.5% de Sílice (% Silica Concentrate < 1.5%). Si entregamos más de 1.5%, pagamos multas o nos rechazan el mineral. Necesito saber con precisión cuántas horas al día operamos 'fuera de norma' y en qué momentos exactos ocurren estos fallos.
+* 
 * **[Req 2] Eficiencia de Reactivos y Costos:** La Amina y el Almidón son nuestros insumos químicos más caros. Sospecho que cuando entra mineral sucio, los operadores inyectan químico a ciegas. Necesito ver la relación entre el consumo promedio por hora de estos reactivos y la pureza de hierro lograda (% Iron Concentrate ≥ 65%), para saber si estamos desperdiciando dinero.
+* 
 * **[Req 3] Variabilidad y Estabilidad de Mina:** El mineral que viene de la mina varía hora a hora (% Iron Feed). Necesito entender cómo cambia la ley del mineral de entrada hora a hora y si la planta logra estabilizarlo antes de sacarlo como producto final.
 
 ## Estructura del Proyecto
-
+El proyecto refleja el flujo de ejecución dentro de Databricks, organizado por las etapas de la arquitectura Medallion:
 ```text
 ├── notebooks/
 │   ├── 01_ingesta_bronze.py      # Lectura del CSV y guardado en Delta (Raw)
