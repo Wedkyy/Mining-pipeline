@@ -73,9 +73,9 @@ La última etapa de procesamiento (`03_ingesta-gold`) consolida la información 
 ## Estructura del Proyecto
 
 ```text
-├── src/
-│   ├── bronze/           # Scripts de ingesta cruda
-│   ├── silver/           # Lógicas de limpieza y estandarización
-│   └── gold/             # Cálculos de negocio y agregaciones
-├── config/               # Archivos de configuración y parámetros
-└── README.md             # Documentación principal del repositorio
+├── notebooks/
+│   ├── 01_ingesta_bronze.py      # Lectura del CSV y guardado en Delta (Raw)
+│   ├── 02_ingesta_silver.py      # Casteo, parseo temporal y optimización
+│   └── 03_ingesta_gold.py        # Agregaciones horarias y reglas de negocio
+├── data/                         # (Opcional) Archivo CSV de muestra de telemetría
+└── README.md                     # Documentación principal del repositorio
