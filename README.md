@@ -80,7 +80,7 @@ La última etapa de procesamiento (`03_capa_gold`) consolida la información par
 
 ### Orquestación y Automatización (Databricks Workflows)
 
-![Databricks Workflow Runs](docs/images/databricks_workflow_runs.png)
+![Databricks Workflow Runs](images/databricks_task.png)
 
 > **Decisión de Programación y Ejecución:**
 > El flujo completo (`Pipeline_Flotacion_Medallion`) está orquestado mediante **Databricks Workflows** con una dependencia secuencial estricta (**Bronze $\rightarrow$ Silver $\rightarrow$ Gold**), configurado para ejecutarse diariamente a las **04:00 AM**.
