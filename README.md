@@ -2,6 +2,10 @@
   
   # Pipeline de Telemetría: Flotación de Mineral de Hierro
   **Arquitectura Lakehouse (Medallion) para Análisis de Telemetría Industrial**
+  ![Databricks](https://img.shields.io/badge/Databricks-FF3621?style=flat&logo=databricks&logoColor=white)
+  ![Apache Spark](https://img.shields.io/badge/Apache%20Spark-E25A1C?style=flat&logo=apachespark&logoColor=white)
+  ![Delta Lake](https://img.shields.io/badge/Delta%20Lake-00ADD8?style=flat&logo=delta&logoColor=white)
+  ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
 </div>
 
 ---
