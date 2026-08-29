@@ -73,10 +73,21 @@ La última etapa de procesamiento (`03_capa_gold`) consolida la información par
 
 #### Casos de Uso Implementados:
 * **[Req 1] Control de Sílice:** El contrato con la fundición exige que el concentrado final tenga menos de 1.5% de Sílice (% Silica Concentrate < 1.5%). Si entregamos más de 1.5%, pagamos multas o nos rechazan el mineral. Necesito saber con precisión cuántas horas al día operamos 'fuera de norma' y en qué momentos exactos ocurren estos fallos.
-* 
+  
 * **[Req 2] Eficiencia de Reactivos y Costos:** La Amina y el Almidón son nuestros insumos químicos más caros. Sospecho que cuando entra mineral sucio, los operadores inyectan químico a ciegas. Necesito ver la relación entre el consumo promedio por hora de estos reactivos y la pureza de hierro lograda (% Iron Concentrate ≥ 65%), para saber si estamos desperdiciando dinero.
-* 
+  
 * **[Req 3] Variabilidad y Estabilidad de Mina:** El mineral que viene de la mina varía hora a hora (% Iron Feed). Necesito entender cómo cambia la ley del mineral de entrada hora a hora y si la planta logra estabilizarlo antes de sacarlo como producto final.
+
+### Orquestación y Automatización (Databricks Workflows)
+
+![Databricks Workflow Runs](docs/images/databricks_workflow_runs.png)
+
+> **Decisión de Programación y Ejecución:**
+> El flujo completo (`Pipeline_Flotacion_Medallion`) está orquestado mediante **Databricks Workflows** con una dependencia secuencial estricta (**Bronze $\rightarrow$ Silver $\rightarrow$ Gold**), configurado para ejecutarse diariamente a las **04:00 AM**.
+>
+> * **Alineación operativa:** Se ejecuta previo al primer cambio de turno de faena, asegurando que los reportes de calidad y flotación estén consolidados y listos para los operadores e ingenieros de planta.
+> * **Monitoreo y Resiliencia:** Cada etapa valida la integridad de los datos antes de disparar la siguiente, garantizando tiempos de ejecución consistentes (~1m 40s) y trazabilidad completa ante fallos.
+
 
 ## Estructura del Proyecto
 El proyecto refleja el flujo de ejecución dentro de Databricks, organizado por las etapas de la arquitectura Medallion:
